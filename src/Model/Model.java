@@ -59,7 +59,31 @@ public class Model extends Observable {
     }
 
     public void moveHrs(int hN, int distance, boolean dirChange) {
+        gMap.delete(gPlayer[turn].whereHorse(hN)[0], gPlayer[turn].whereHorse(hN)[1]);
         gPlayer[turn].moveHrs(hN, distance, dirChange);
+        int newX = gPlayer[turn].whereHorse(hN)[0];
+        int newY = gPlayer[turn].whereHorse(hN)[1];
+        if(!gMap.getInfo(newX, newY).isEmpty()) {
+            if(gMap.getInfo(newX, newY).charAt(0) == Integer.toString(gPlayer[turn].getId())) {
+                gPlayer[turn].grouping(hN, newX, newY);
+                gMap.placeGroup(gPlayer[turn].getId(), newX, newY);
+            } else {
+                String temp = gMap.getInfo(newX, newY).charAt(0);
+                for(int i = 0; i < gPlayer.length(); i++) {
+                    if(i == turn) continue;
+                    else {
+                        if(gPlayer[i].getId() == Integer.valueOf(temp)) {
+                            for(int j = 0; j < this.hNumber; j++) {
+                                if(gPlayer[i].whereHorse(j)[0] = newX && gPlayer.whereHorse(j)[1] == newY) {
+                                    gPlayer[i].goStart(j);
+                                }
+                            }
+                        }
+                    }
+                }
+                gMap.place(gPlayer[turn].getId(), newX, newY);
+            }
+        }
         if(distance != 0 && distance != 4) turn = (turn + 1) % 4;
     }
 

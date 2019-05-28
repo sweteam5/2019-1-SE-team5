@@ -5,10 +5,11 @@ public class Horse {
     private int placeY;
     private int direction;
     private boolean isEnd;
-    private Arary<Horse> group;
+    private Array<Horse> group;
 
     public Horse() {
         this.isEnd = false;
+        this.group = null;
     }
 
     public goStart() {
@@ -26,6 +27,20 @@ public class Horse {
 
     public boolean getEnd() {
         return this.isEnd;
+    }
+
+    public void setEnd() {
+        this.isEnd = true;
+    }
+
+    public void setPlace(int dir, int x, int y) {
+        this.direction = dir;
+        this.placeX = x;
+        this.placeY = y;
+    }
+
+    public void pushGroup(Horse hrs) {
+        this.group.push(hrs);
     }
 
     public void move(int distance, boolean dirChange) {
@@ -98,7 +113,18 @@ public class Horse {
             else if(this.placeX == 0 && this.placeY == 10) this.direction++;
             if(this.placeX == 10 && this.placeY == 10 && moved > 0) {
                 this.isEnd = true;
+                if(this.group.length() > 0) {
+                    for(int i = 0; i < this.group.length; i++) {
+                        this.group[0].setEnd();
+                    }
+                }
                 break;
+            }
+        }
+
+        if(this.group.length() > 0) {
+            for(int i = 0; i < this.group.length; i++) {
+                this.group[0].setPlace(this.direction, this.placeX, this.placeY);
             }
         }
     }

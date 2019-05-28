@@ -30,4 +30,24 @@ public class Player {
     public int getId() {
         return this.pNn;
     }
+
+    public void goStart(int hN) {
+        hrr[hN].goStart();
+    }
+
+    public void grouping(int hN, int x, int y) {
+        for(int i = 0; i < hrr.length(); i++) {
+            if(i == hN) continue;
+            else {
+                if(hrr[i].getPlace()[0] == x && hrr[i].getPlace()[1] == y) {
+                    hrr[i].pushGroup(hrr[hN]);
+                    hrr[hN].pushGroup(hrr[i]);
+                }
+            }
+        }
+    }
+
+    public Array<Int> whereHorse(int hN) {
+        return hrr[hN].getPlace();
+    }
 }
