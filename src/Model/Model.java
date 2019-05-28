@@ -92,7 +92,7 @@ public class Model extends Observable {
 
         // 말을 움직임
         gPlayer[turn].moveHrs(hN, distance, dirChange);
-        
+
         int newX = gPlayer[turn].whereHorse(hN)[0];
         int newY = gPlayer[turn].whereHorse(hN)[1];
 
@@ -139,10 +139,12 @@ public class Model extends Observable {
     }
 
     public int whoTurn() {
+        // 누구의 턴인지 출력 (PlayerID : turn + 1)
         return turn + 1;
     }
 
     public String mapAt(int x, int y) {
+        // 맵의 특정 위치의 값을 읽음
         return gMap.getInfo(x, y);
     }
 
