@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.Observable;
+import java.util;
 
 public class Model extends Observable {
     private Array<Yut> gYut;
@@ -27,6 +27,8 @@ public class Model extends Observable {
 
         if(distance == 1 && gYut[3].getVal() == 1) return -1;
         else return distance;
+        setChanged();
+        notifyObservers();
     }
 
     public int throwYut(int num) {
@@ -85,6 +87,12 @@ public class Model extends Observable {
             }
         }
         if(distance != 0 && distance != 4) turn = (turn + 1) % 4;
+        setChanged();
+        notifyObservers();
+    }
+
+    public int whoTurn() {
+        return turn + 1;
     }
 
     public void endGame() {
