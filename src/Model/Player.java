@@ -23,6 +23,10 @@ public class Player {
         else return false;
     }
 
+    public boolean isEnd(int hN) {
+        return hrr(hN).getEnd();
+    }
+
     public void moveHrs(int hN, int distance, boolean dirChange) {
         hrr[hN].move(distance, dirChange);
     }
