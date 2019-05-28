@@ -12,4 +12,22 @@ public class Player {
 
         hrr[0].goStart();
     }
+
+    public boolean isEnd() {
+        int tmp = 0;
+        for(int i = 0 ; i < hrr.length(); i++) {
+            if(hrr[i].getEnd() == true) tmp++;
+        }
+
+        if(tmp == hrr.length()) return true;
+        else return false;
+    }
+
+    public void moveHrs(int hN, int distance, boolean dirChange) {
+        hrr[hN].move(distance, dirChange);
+    }
+
+    public int getId() {
+        return this.pNn;
+    }
 }
