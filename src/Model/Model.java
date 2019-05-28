@@ -9,6 +9,7 @@ public class Model extends Observable {
     private Map gMap;
     private Array<Int> res;
     private int turn = 0;
+    private boolean isEnd;
 
 
     public Model(int pNumber, int hNumber) {
@@ -16,6 +17,7 @@ public class Model extends Observable {
             gPlayer.push(new Player(i+1, hNumber));
         }
         gMap = new Map();
+        this.isEnd = false;
     }
 
     public int throwYut() {
@@ -95,9 +97,13 @@ public class Model extends Observable {
         return turn + 1;
     }
 
-    public void endGame() {
+    public boolean endGame() {
         for(int i = 0; i < pNumber; i++) {
-            if(gPlayer[i].isEnd() == true) break;
+            if(gPlayer[i].isEnd() == true) {
+                this.isEnd = true;
+                break;
+            }
         }
+        return this.isEnd;
     }
 }
