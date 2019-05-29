@@ -148,6 +148,11 @@ public class Model extends Observable {
         return gMap.getInfo(x, y);
     }
 
+    public String[] getMap() {
+        // 전체 맵의 정보 반환
+        return gMap.getMap();
+    }
+
     public boolean endGame() {
         /**
          * 게임이 끝났는지를 판단.

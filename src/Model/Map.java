@@ -22,4 +22,8 @@ class Map {
     public String getInfo(int x, int y) {
         return gMap[x][y];
     }
+
+    public String[] getMap() {
+        return this.gMap;
+    }
 }
