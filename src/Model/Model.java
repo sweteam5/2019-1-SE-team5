@@ -48,12 +48,17 @@ public class Model extends Observable {
          * (지정 던지기)
          */
         distance = num;
-        if(num == -1) {
+        if(num == 0) {
             for(int i = 0; i < 3; i++) {
                 this.res.add(0);
             }
             this.res.add(1);
             return -1;
+        } else if(num == 5) {
+            for(int i = 0; i < 4; i++) {
+                this.res.add(0);
+            }
+            return distance;
         } else {
             for(int i = 0; i < 4; i++) {
                 if(num > 0) {
@@ -97,12 +102,13 @@ public class Model extends Observable {
 
         // 말을 움직임
         gPlayer.get(turn).moveHrs(hN, distance, dirChange);
+        System.out.println(gPlayer.get(turn).whereHorse(hN));
 
         int newX = gPlayer.get(turn).whereHorse(hN).get(0);
         int newY = gPlayer.get(turn).whereHorse(hN).get(1);
 
         // 이하의 코드는 맵의 새로운 위치에 말을 넣는 역할
-        if(!gMap.getInfo(newX, newY).isEmpty()) {
+        if(gMap.getInfo(newX, newY) != "") {
             /**
              * 말의 새로운 위치에 이미 다른 말이 있는 경우
              */
@@ -138,12 +144,10 @@ public class Model extends Observable {
              */
             gMap.place(tmp, newX, newY);
         }
-        if(distance != 0 && distance != 4) turn = (turn + 1) % gPlayer.size();
-        /*
+        if(distance != 5 && distance != 4) turn = (turn + 1) % gPlayer.size();
         setChanged();
         notifyObservers();
-        */
-        System.out.println("Hello");
+
     }
 
     public int whoTurn() {

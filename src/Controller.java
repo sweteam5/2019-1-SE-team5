@@ -37,23 +37,28 @@ public class Controller implements ActionListener {
         if(e.getActionCommand()=="랜덤 던지기"){
             distance = this.model.throwYut();
             this.GUI.PYP.randomYut(distance);
-
-            this.model.moveHrs(0, distance, GUI.YP.directChange());//터져욧!
+            this.model.moveHrs(0, distance, GUI.YP.directChange());
             
-            /*
-            for(int i=0;i<10;i++){
-                for(int j=0;j<10;j++){
-                    int mapinfo=Integer.parseInt(this.model.mapAt(i, j));
-                    this.GUI.YP.btn_Board[i][j].set_Mal(1);
+            
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    String mapinfo = this.model.mapAt(i, j);
+                    System.out.println(mapinfo);
+                    if(mapinfo!=""){
+                        this.GUI.YP.btn_Board[i][j].set_Mal(Integer.parseInt(mapinfo));
+                    }
+                    else{
+                        this.GUI.YP.btn_Board[i][j].set_Mal(0);
+                    }
+                    
                 }
             }
-            */
+            
             /*
             this.GUI.YP.btn_data[0]= new JButton("Player : "+this.model.whoTurn());
             this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
             */
             
-            this.GUI.YP.btn_Board[10][10].set_Mal(1);
         
             this.GUI.YP.Check_Pan();
             
@@ -68,7 +73,34 @@ public class Controller implements ActionListener {
         } else if(e.getActionCommand()=="지정 던지기"){
             distance=GUI.PYP.chooseYut();
             this.model.throwYut(distance);
-            this.GUI.PYP.chooseYut(distance);
+            this.GUI.PYP.chosenYut(distance);
+            this.model.moveHrs(0, distance, GUI.YP.directChange());
+
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    String mapinfo = this.model.mapAt(i, j);
+                    // System.out.println(mapinfo);
+                    if(mapinfo!=""){
+                        this.GUI.YP.btn_Board[i][j].set_Mal(Integer.parseInt(mapinfo));
+                    }
+                    else{
+                        this.GUI.YP.btn_Board[i][j].set_Mal(0);
+                    }
+                    
+                }
+            }
+            
+            /*
+            this.GUI.YP.btn_data[0]= new JButton("Player : "+this.model.whoTurn());
+            this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
+            */
+            
+        
+            this.GUI.YP.Check_Pan();
+            
+            this.GUI.YP.YUTPAN.repaint();
+            this.GUI.repaint();
+
             //view에서 model의 윷 던지기 실행->distance 구함
 
             /*choose what horse at view*/

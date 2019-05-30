@@ -28,7 +28,7 @@ public class GUI_PlayPan extends JPanel implements ActionListener {
     private ImageIcon mo = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/mo.png");
     private ImageIcon bk = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/bk.png");
 
-    private String[] setYutbtn = {"도", "개", "걸", "윷","모"};
+    private String[] setYutbtn = {"빽도", "도", "개", "걸", "윷","모"};
 
     private Image fimg, bimg;
     public int distance;
@@ -117,25 +117,25 @@ public class GUI_PlayPan extends JPanel implements ActionListener {
 
     }
 
-    public void chooseYut(int distance){
+    public void chosenYut(int distance){
 
-      if(distance==0){
+      if(distance==1){
         btn_yut[0].setIcon(doo);
         txtLog.append("Set : 도\n");
       }
-      else if(distance==1){
+      else if(distance==2){
         btn_yut[0].setIcon(gae);
         txtLog.append("Set : 개\n");
       }
-      else if(distance==2){
+      else if(distance==3){
         btn_yut[0].setIcon(girl);
         txtLog.append("Set : 걸\n");
       }
-      else if(distance==3){
+      else if(distance==4){
         btn_yut[0].setIcon(yut);
         txtLog.append("Set : 윷\n");
       }
-      else if(distance==4){
+      else if(distance==5){
         btn_yut[0].setIcon(mo);
         txtLog.append("Set : 모\n");
       }

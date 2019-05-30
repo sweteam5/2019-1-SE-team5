@@ -132,31 +132,31 @@ public class GUI_YUTPAN implements ActionListener {
 
         // 맨 오른쪽 보드
         btn_Board[10][10].setBounds(476, 480, 50, 50);
-        btn_Board[10][8].setBounds(476, 380, 50, 50);
-        btn_Board[10][6].setBounds(476, 300, 50, 50);
-        btn_Board[10][4].setBounds(476, 220, 50, 50);
-        btn_Board[10][2].setBounds(476, 140, 50, 50);
-        btn_Board[10][0].setBounds(476, 39, 50, 50);
+        btn_Board[8][10].setBounds(476, 380, 50, 50);
+        btn_Board[6][10].setBounds(476, 300, 50, 50);
+        btn_Board[4][10].setBounds(476, 220, 50, 50);
+        btn_Board[2][10].setBounds(476, 140, 50, 50);
+        btn_Board[0][10].setBounds(476, 39, 50, 50);
 
         // 맨 왼쪽 보드
-        btn_Board[0][10].setBounds(42, 480, 50, 50);
-        btn_Board[0][8].setBounds(42, 380, 50, 50);
-        btn_Board[0][6].setBounds(42, 300, 50, 50);
-        btn_Board[0][4].setBounds(42, 220, 50, 50);
-        btn_Board[0][2].setBounds(42, 140, 50, 50);
-        btn_Board[0][0].setBounds(42, 39, 50, 50);
+        btn_Board[0][0].setBounds(42, 480, 50, 50);
+        btn_Board[2][0].setBounds(42, 380, 50, 50);
+        btn_Board[4][0].setBounds(42, 300, 50, 50);
+        btn_Board[6][0].setBounds(42, 220, 50, 50);
+        btn_Board[8][0].setBounds(42, 140, 50, 50);
+        btn_Board[10][0].setBounds(42, 39, 50, 50);
 
         // 맨 위쪽 보드
-        btn_Board[2][0].setBounds(139, 39, 50, 50);
-        btn_Board[4][0].setBounds(218, 39, 50, 50);
-        btn_Board[6][0].setBounds(297, 39, 50, 50);
-        btn_Board[8][0].setBounds(376, 39, 50, 50);
+        btn_Board[0][2].setBounds(139, 39, 50, 50);
+        btn_Board[0][4].setBounds(218, 39, 50, 50);
+        btn_Board[0][6].setBounds(297, 39, 50, 50);
+        btn_Board[0][8].setBounds(376, 39, 50, 50);
 
         // 맨 아래쪽 보드
-        btn_Board[2][10].setBounds(139, 480, 50, 50);
-        btn_Board[4][10].setBounds(218, 480, 50, 50);
-        btn_Board[6][10].setBounds(297, 480, 50, 50);
-        btn_Board[8][10].setBounds(376, 480, 50, 50);
+        btn_Board[10][2].setBounds(139, 480, 50, 50);
+        btn_Board[10][4].setBounds(218, 480, 50, 50);
+        btn_Board[10][6].setBounds(297, 480, 50, 50);
+        btn_Board[10][8].setBounds(376, 480, 50, 50);
 
         // 대각선1
         btn_Board[2][2].setBounds(120, 120, 50, 50);
@@ -371,8 +371,10 @@ public class GUI_YUTPAN implements ActionListener {
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;                    
                     default :
-                        System.out.println("err");
-                        
+                        btn_Board[i][j].setIcon(null);
+                        btn_Board[i][j].setText(null);
+                        btn_Board[i][j].setBorderPainted(false);
+                        btn_Board[i][j].setContentAreaFilled(false);
                     }
             }
         }
@@ -416,7 +418,6 @@ public class GUI_YUTPAN implements ActionListener {
         else{
             return false;
         }
-
     }
 
 }

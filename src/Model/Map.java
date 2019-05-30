@@ -5,6 +5,11 @@ class Map {
 
     public Map() {
         this.gMap = new String[11][11];
+        for(int i=0;i<11;i++){
+            for(int j=0;j<11;j++){
+                gMap[i][j]="";
+            }
+        }
     }
 
     public void delete(int x, int y) {

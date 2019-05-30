@@ -13,7 +13,7 @@ public class Horse {
     public Horse() {
         this.isEnd = false;
         this.isGrouped = false;
-        this.group =new ArrayList<Horse>();
+        this.group = new ArrayList<Horse>();
     }
 
     public void goStart() {
@@ -37,7 +37,7 @@ public class Horse {
         /**
          * 그룹용 기능: Array<Horse> group을 비움
          */
-        this.group = null;
+        this.group = new ArrayList<Horse>();
     }
 
     public ArrayList<Integer> getPlace() {
@@ -86,7 +86,7 @@ public class Horse {
             return;
         }
 
-        if(distance == -1) {
+        if(distance == 0) {
             // 빽도
             if (this.placeX == 10 && this.placeY == 10) return;
             else {
@@ -113,7 +113,7 @@ public class Horse {
              */
             if(moved == 0 && dirChange == true) {
                 // 방향을 바꿀 수 있는 위치에서 바꾸도록 신호가 오면 대각선 방향으로 꺾음
-                if (this.placeX == 10 & this.placeX == 0) {
+                if (this.placeX == 0 & this.placeY == 10) {
                     this.direction = 4;
                 } else if (this.placeX == 0 && this.placeY == 0) {
                     this.direction = 5;
@@ -121,32 +121,33 @@ public class Horse {
                     this.direction = 5;
                 }
             }
+            System.out.println(this.direction);
             /**
              * 현재 방향에 맞게 말의 좌표를 변경
              */
             if(this.direction == 0) {
-                this.placeY -= 2;
-            } else if(this.direction == 1) {
                 this.placeX -= 2;
+            } else if(this.direction == 1) {
+                this.placeY -= 2;
             } else if(this.direction == 2) {
-                this.placeY += 2;
-            } else if(this.direction == 3) {
                 this.placeX += 2;
+            } else if(this.direction == 3) {
+                this.placeY += 2;
             } else if(this.direction == 4) {
-                if((this.placeX == 6 && this.placeY == 4) || (this.placeX == 5 && this.placeY == 5)) {
-                    this.placeX--;
-                    this.placeY--;
-                } else {
-                    this.placeX -= 2;
-                    this.placeY -= 2;
-                }
-            } else {
-                if((this.placeX == 4 && this.placeY == 4) || (this.placeX == 5 && this.placeY == 5)) {
+                if((this.placeX == 4 && this.placeY == 6) || (this.placeX == 5 && this.placeY == 5)) {
                     this.placeX++;
                     this.placeY--;
                 } else {
                     this.placeX += 2;
                     this.placeY -= 2;
+                }
+            } else {
+                if((this.placeX == 4 && this.placeY == 4) || (this.placeX == 5 && this.placeY == 5)) {
+                    this.placeX++;
+                    this.placeY++;
+                } else {
+                    this.placeX += 2;
+                    this.placeY += 2;
                 }
             }
 
@@ -155,9 +156,16 @@ public class Horse {
 
 
             // 움직이는 도중에 벽에 닿으면 바로 방향을 바꿔줌
-            if(this.placeX == 0 && this.placeY == 0) this.direction++;
-            else if(this.placeX == 10 && this.placeY == 0) this.direction++;
-            else if(this.placeX == 0 && this.placeY == 10) this.direction++;
+            if(this.placeX == 0 && this.placeY == 0) {
+                this.direction++;
+            }
+            else if(this.placeX == 10 && this.placeY == 0) {
+                this.direction = 3;
+            }
+            else if(this.placeX == 0 && this.placeY == 10) {
+                this.direction++;
+            }
+
             if(this.placeX == 10 && this.placeY == 10 && moved > 0) {
                 /**
                  * 1회 이상 움직여서 시작지점으로 돌아온 경우, 이 말과
@@ -172,8 +180,8 @@ public class Horse {
                 break;
             }
         }
-
-        if(this.group.size() > 0) {
+        
+        if(!this.group.isEmpty()) {
             /**
              * 모든 이동이 끝난 이후에 그룹에 있는 말들을 현재 말과 같은 위치에 놓음
              */
