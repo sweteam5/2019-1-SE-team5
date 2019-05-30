@@ -12,8 +12,12 @@ public class Horse {
 
     public Horse() {
         this.isEnd = false;
+<<<<<<< HEAD
         this.isGrouped = false;
         this.group = new ArrayList<Horse>();
+=======
+        this.group =new ArrayList<Horse>();
+>>>>>>> e170c7f79b87ae5ab7d51b704d64aa4aa4846072
     }
 
     public void goStart() {
