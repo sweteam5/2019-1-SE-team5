@@ -1,23 +1,29 @@
 package Model;
 
-import java.util;
+import java.util.*;
+import java.util.Observable.*;
 
 public class Model extends Observable {
-    private Array<Yut> gYut;
+    private ArrayList<Yut> gYut = new ArrayList<Yut>();
     private int distance;
-    private Array<Player> gPlayer;
+    private ArrayList<Player> gPlayer = new ArrayList<Player>();
     private Map gMap;
-    private Array<Int> res;
+    private ArrayList<Integer> res = new ArrayList<Integer>();
     private int turn = 0;
     private boolean isEnd;
+    private int pNumber;
+    private int hNumber;
 
-
-    public Model(int pNumber, int hNumber) {
+    public Model(String psvalue[]) {
+        this.pNumber = Integer.parseInt(psvalue[0]);
+        this.hNumber = Integer.parseInt(psvalue[1]);
         for(int i = 0; i < pNumber; i++) {
-            gPlayer.push(new Player(i+1, hNumber));
+            gPlayer.add(new Player(i+1, hNumber));
         }
         gMap = new Map();
-        this.isEnd = false;
+        for(int i = 0; i < 4; i++) {
+            gYut.add(new Yut());
+        }
     }
 
     public int throwYut() {
@@ -26,14 +32,14 @@ public class Model extends Observable {
          */
         distance = 0;
         for(int i = 0; i < 4; i++) {
-            gYut[i].throwYut();
-            if(gYut[i].getVal() == 1) distance++;
+            gYut.get(i).throwYut();
+            if(gYut.get(i).getVal() == 1) distance++;
         }
 
-        if(distance == 1 && gYut[3].getVal() == 1) return -1;
+        if(distance == 1 && gYut.get(3).getVal() == 1) return -1;
         else return distance;
-        setChanged();
-        notifyObservers();
+        /*setChanged();
+        notifyObservers();*/
     }
 
     public int throwYut(int num) {
@@ -42,31 +48,30 @@ public class Model extends Observable {
          * (지정 던지기)
          */
         distance = num;
-        Array<Int> res;
         if(num == -1) {
             for(int i = 0; i < 3; i++) {
-                this.res[i] = 0;
+                this.res.add(0);
             }
-            this.res[3] = 1;
+            this.res.add(1);
             return -1;
         } else {
             for(int i = 0; i < 4; i++) {
                 if(num > 0) {
-                    this.res[i] = 1;
+                    this.res.add(1);
                     num--;
                 }
-                else this.res[0] = 0;
+                else this.res.add(0);
             }
             return distance;
         }
     }
 
-    public Array<Int> getThrown() {
+    public ArrayList<Int> getThrown() {
         /**
          * 던져진 윷의 결과를 배열로 넘겨줌
          */
-        for(int i = 0; i < gYut.length(); i++) {
-            res.push(gYut[i].getVal());
+        for(int i = 0; i < gYut.size(); i++) {
+            res.push(gYut.get(i).getVal());
         }
 
         return res;
@@ -79,47 +84,47 @@ public class Model extends Observable {
          * 말이 방향을 바꿀 수 있는 위치에 있고 방향을 꺾도록 선택되었다면 true를 넘기면 됨
          */
         String tmp;
-        if(gPlayer[turn].whereHorse(hN)[0] == 10 && gPlayer[turn].whereHorse(hN)[1] == 10) {
+        if(gPlayer.get(turn).whereHorse(hN).get(0) == 10 && gPlayer.get(turn).whereHorse(hN).get(1) == 10) {
             // 말이 시작위치에 있다면 현재 턴인 플레이어의 ID를,
-            tmp = Integer.toString(gPlayer[turn].getId());
+            tmp = Integer.toString(gPlayer.get(turn).getId());
         } else {
             // 아니라면 현재 말의 위치에 따라 맵에 저장되어있는 스트링 값을 저장해둠 (새로운 위치에 넣을 때 사용)
-            tmp = gMap.getInfo(gPlayer[turn].whereHorse(hN)[0], gPlayer[turn].whereHorse(hN)[1]);
+            tmp = gMap.getInfo(gPlayer.get(turn).whereHorse(hN).get(0), gPlayer.get(turn).whereHorse(hN).get(1));
         }
 
         // 맵에서 말이 움직이기 전 위치를 비우고
-        gMap.delete(gPlayer[turn].whereHorse(hN)[0], gPlayer[turn].whereHorse(hN)[1]);
+        gMap.delete(gPlayer.get(turn).whereHorse(hN).get(0), gPlayer.get(turn).whereHorse(hN).get(1));
 
         // 말을 움직임
-        gPlayer[turn].moveHrs(hN, distance, dirChange);
+        gPlayer.get(turn).moveHrs(hN, distance, dirChange);
 
-        int newX = gPlayer[turn].whereHorse(hN)[0];
-        int newY = gPlayer[turn].whereHorse(hN)[1];
+        int newX = gPlayer.get(turn).whereHorse(hN).get(0);
+        int newY = gPlayer.get(turn).whereHorse(hN).get(1);
 
         // 이하의 코드는 맵의 새로운 위치에 말을 넣는 역할
         if(!gMap.getInfo(newX, newY).isEmpty()) {
             /**
              * 말의 새로운 위치에 이미 다른 말이 있는 경우
              */
-            if(gMap.getInfo(newX, newY).charAt(0) == Integer.toString(gPlayer[turn].getId())) {
+            if(gMap.getInfo(newX, newY).charAt(0) == Integer.toString(gPlayer.get(turn).getId()).charAt(0)) {
                 /**
                  * 그것이 현재 턴인 플레이어의 말이라면 업게 함
                  */
-                gPlayer[turn].grouping(tmp, newX, newY);
-                gMap.placeGroup(gPlayer[turn].getId(), newX, newY);
+                gPlayer.get(turn).grouping(Integer.valueOf(tmp), newX, newY);
+                gMap.placeGroup(String.valueOf(gPlayer.get(turn).getId()), newX, newY);
             } else {
                 /**
                  * 다른 플레이어의 말이라면 그 말을 시작지점으로 돌려보내고(업혀있는 말까지 모두)
                  * 내 말을 그 자리에 둠
                  */
-                String temp = gMap.getInfo(newX, newY).charAt(0);
-                for(int i = 0; i < gPlayer.length(); i++) {
+                String temp = gMap.getInfo(newX, newY).substring(0, 1);
+                for(int i = 0; i < gPlayer.size(); i++) {
                     if(i == turn) continue;
                     else {
-                        if(gPlayer[i].getId() == Integer.valueOf(temp)) {
+                        if(gPlayer.get(i).getId() == Integer.valueOf(temp)) {
                             for(int j = 0; j < this.hNumber; j++) {
-                                if(gPlayer[i].whereHorse(j)[0] = newX && gPlayer.whereHorse(j)[1] == newY) {
-                                    gPlayer[i].goStart(j);
+                                if(gPlayer.get(i).whereHorse(j).get(0) == newX && gPlayer.get(i).whereHorse(j).get(1) == newY) {
+                                    gPlayer.get(i).goStart(j);
                                 }
                             }
                         }
@@ -133,9 +138,12 @@ public class Model extends Observable {
              */
             gMap.place(tmp, newX, newY);
         }
-        if(distance != 0 && distance != 4) turn = (turn + 1) % 4;
+        if(distance != 0 && distance != 4) turn = (turn + 1) % gPlayer.size();
+        /*
         setChanged();
         notifyObservers();
+        */
+        System.out.println("Hello");
     }
 
     public int whoTurn() {
@@ -159,7 +167,7 @@ public class Model extends Observable {
          * moveHrs() 메소드를 실행시킨 뒤에 꼭 한번씩 체크해줄 것
          */
         for(int i = 0; i < pNumber; i++) {
-            if(gPlayer[i].isEnd() == true) {
+            if(gPlayer.get(i).isEnd() == true) {
                 this.isEnd = true;
                 break;
             }

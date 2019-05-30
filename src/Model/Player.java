@@ -1,16 +1,18 @@
 package Model;
 
+import java.util.*;
+
 public class Player {
-    private Array<Horse> hrr;
+    private ArrayList<Horse> hrr = new ArrayList<Horse>();
     private int pNn;
 
     public Player(int pNN, int hNum) {
         this.pNn = pNN;
         for(int i = 0; i < hNum; i++) {
-            hrr.push(new Horse());
+            hrr.add(new Horse());
         }
 
-        hrr[0].goStart();
+        hrr.get(0).goStart();
     }
 
     public boolean isEnd() {
@@ -21,7 +23,7 @@ public class Player {
          */
         int tmp = 0;
         for(int i = 0 ; i < hrr.length(); i++) {
-            if(hrr[i].getEnd() == true) tmp++;
+            if(hrr.get(i).getEnd() == true) tmp++;
         }
 
         if(tmp == hrr.length()) return true;
@@ -39,7 +41,7 @@ public class Player {
         /**
          * hN번 말을 distance만큼 움직임
          */
-        hrr[hN].move(distance, dirChange);
+        hrr.get(hN).move(distance, dirChange);
     }
 
     public int getId() {
@@ -53,7 +55,7 @@ public class Player {
         /**
          * hN번 말을 시작지점으로 보냄
          */
-        hrr[hN].goStart();
+        hrr.get(hN).goStart();
     }
 
     public void grouping(int hN, int x, int y) {
@@ -61,21 +63,21 @@ public class Player {
          * 좌표를 받으면 그 좌표에 있는 말이 hN번 말을 업게 함
          * 반대로도 함
          */
-        for(int i = 0; i < hrr.length(); i++) {
+        for(int i = 0; i < hrr.size(); i++) {
             if(i == hN) continue;
             else {
-                if(hrr[i].getPlace()[0] == x && hrr[i].getPlace()[1] == y) {
-                    hrr[i].pushGroup(hrr[hN]);
-                    hrr[hN].pushGroup(hrr[i]);
+                if(hrr.get(i).getPlace().get(0) == x && hrr.get(i).getPlace().get(1) == y) {
+                    hrr.get(i).pushGroup(hrr.get(hN));
+                    hrr.get(hN).pushGroup(hrr.get(i));
                 }
             }
         }
     }
 
-    public Array<Int> whereHorse(int hN) {
+    public ArrayList<Integer> whereHorse(int hN) {
         /**
          * hN번 말의 위치를 Array<Int>형태로 반환
          */
-        return hrr[hN].getPlace();
+        return hrr.get(hN).getPlace();
     }
 }

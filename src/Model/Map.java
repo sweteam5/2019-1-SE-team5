@@ -4,7 +4,7 @@ class Map {
     private String gMap[][];
 
     public Map() {
-        this.gMap = new String[10][10];
+        this.gMap = new String[11][11];
     }
 
     public void delete(int x, int y) {
@@ -26,4 +26,5 @@ class Map {
     public String[] getMap() {
         return this.gMap;
     }
+
 }

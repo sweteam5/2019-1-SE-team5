@@ -1,17 +1,19 @@
 package Model;
 
+import java.util.*;
+
 public class Horse {
     private int placeX;
     private int placeY;
     private int direction;
     private boolean isEnd;
     private boolean isGrouped;
-    private Array<Horse> group;
+    private ArrayList<Horse> group;
 
     public Horse() {
         this.isEnd = false;
         this.isGrouped = false;
-        this.group = null;
+        this.group =new ArrayList<Horse>();
     }
 
     public void goStart() {
@@ -22,10 +24,10 @@ public class Horse {
         this.direction = 0;
         this.placeX = 10;
         this.placeY = 10;
-        if(this.group.length() > 0) {
-            for(int i = 0; i < this.group.length; i++) {
-                this.group[i].setPlace(0, 10, 10);
-                this.group[i].endGroup();
+        if(!this.group.isEmpty()) {
+            for(int i = 0; i < this.group.size(); i++) {
+                this.group.get(i).setPlace(0, 10, 10);
+                this.group.get(i).endGroup();
             }
         }
         this.endGroup();
@@ -38,13 +40,13 @@ public class Horse {
         this.group = null;
     }
 
-    public Array<Int> getPlace() {
+    public ArrayList<Integer> getPlace() {
         /**
          * 현재 위치를 배열로 반환
          */
-        Array<Int> res;
-        res[0] = this.placeX;
-        res[1] = this.placeY;
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        res.add(0, this.placeX);
+        res.add(1, this.placeY);
         return res;
     }
 
@@ -162,21 +164,21 @@ public class Horse {
                  * 업혀있는 모든 말을 끝난 상태로 바꿈
                  */
                 this.isEnd = true;
-                if(this.group.length() > 0) {
-                    for(int i = 0; i < this.group.length; i++) {
-                        this.group[i].setEnd();
+                if(this.group.size() > 0) {
+                    for(int i = 0; i < this.group.size(); i++) {
+                        this.group.get(i).setEnd();
                     }
                 }
                 break;
             }
         }
 
-        if(this.group.length() > 0) {
+        if(this.group.size() > 0) {
             /**
              * 모든 이동이 끝난 이후에 그룹에 있는 말들을 현재 말과 같은 위치에 놓음
              */
-            for(int i = 0; i < this.group.length; i++) {
-                this.group[i].setPlace(this.direction, this.placeX, this.placeY);
+            for(int i = 0; i < this.group.size(); i++) {
+                this.group.get(i).setPlace(this.direction, this.placeX, this.placeY);
             }
         }
     }
