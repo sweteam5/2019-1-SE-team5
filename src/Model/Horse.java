@@ -7,22 +7,20 @@ public class Horse {
     private int placeY;
     private int direction;
     private boolean isEnd;
+    private boolean isGrouped;
     private ArrayList<Horse> group;
 
     public Horse() {
         this.isEnd = false;
-<<<<<<< HEAD
         this.isGrouped = false;
         this.group = new ArrayList<Horse>();
-=======
-        this.group =new ArrayList<Horse>();
->>>>>>> e170c7f79b87ae5ab7d51b704d64aa4aa4846072
     }
 
     public void goStart() {
         /**
          * 현재 말과 그룹에 있는 말들을 모두 시작지점으로 보내버림
          */
+        this.isGrouped = false;
         this.direction = 0;
         this.placeX = 10;
         this.placeY = 10;
