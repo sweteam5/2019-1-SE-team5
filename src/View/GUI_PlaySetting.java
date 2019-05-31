@@ -1,3 +1,5 @@
+package View;
+
 import java.io.IOException;
 import javax.swing.*;
 
