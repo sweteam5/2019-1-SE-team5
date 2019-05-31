@@ -34,7 +34,7 @@ public class Player {
         /**
          * hN번 말이 끝났는지를 반환
          */
-        return hrr(hN).getEnd();
+        return hrr.get(hN).getEnd();
     }
 
     public void moveHrs(int hN, int distance, boolean dirChange) {
