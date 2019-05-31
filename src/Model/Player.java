@@ -10,9 +10,8 @@ public class Player {
         this.pNn = pNN;
         for(int i = 0; i < hNum; i++) {
             hrr.add(new Horse());
+            hrr.get(i).goStart();
         }
-
-        hrr.get(0).goStart();
     }
 
     public boolean isEnd() {

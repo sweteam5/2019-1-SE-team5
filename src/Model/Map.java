@@ -21,7 +21,7 @@ class Map {
     }
 
     public void placeGroup(String id, int x, int y) {
-        gMap[x][y] = gMap[x][y].append(id);
+        gMap[x][y] = gMap[x][y] + id;
     }
 
     public String getInfo(int x, int y) {

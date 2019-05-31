@@ -68,6 +68,7 @@ public class Controller implements ActionListener {
         } else {
             dirChange = false;
         }
+        System.out.println(horse + " " + distance + " " + dirChange);
         this.model.moveHrs(horse, distance, dirChange);
 
         for(int i=0;i<11;i++){
