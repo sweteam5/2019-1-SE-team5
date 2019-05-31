@@ -47,11 +47,11 @@ public class Controller implements ActionListener {
 
         do {
             horse = this.GUI.YP.selectHorse();
-        } while(this.model.hrsEnd(this.model.whoTurn, horse));
+        } while(this.model.hrsEnd(this.model.whoTurn() - 1, horse));
         
-        if((this.model.hrsInfo(this.model.whoTurn, horse)[0] == 0 && this.model.hrsInfo(this.model.whoTurn, horse)[1] == 10) ||
-        (this.model.hrsInfo(this.model.whoTurn, horse)[0] == 0 && this.model.hrsInfo(this.model.whoTurn, horse)[1] == 0) ||
-        (this.model.hrsInfo(this.model.whoTurn, horse)[0] == 5 && this.model.hrsInfo(this.model.whoTurn, horse)[0] == 5)) {
+        if((this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 0 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 10) ||
+        (this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 0 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 0) ||
+        (this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 5 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 5)) {
             String setDistbtn[] = {"네", "아니오"};
             dirC = JOptionPane.showOptionDialog(null, "방향을 바꾸시겠습습니까?", "방향 바꾸기",
            JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, setDistbtn, "두 번째값");

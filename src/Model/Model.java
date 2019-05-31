@@ -156,10 +156,10 @@ public class Model extends Observable {
     }
 
     public boolean hrsEnd(int pN, int hN) {
-        return this.gPlayer.get(pN).isENd(hN);
+        return gPlayer.get(pN).isEnd(hN);
     }
 
-    public int hrsInfo(int pN, int hN) {
+    public ArrayList<Integer> hrsInfo(int pN, int hN) {
         return this.gPlayer.get(pN).whereHorse(hN);
     }
 
