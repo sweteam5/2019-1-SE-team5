@@ -59,7 +59,7 @@ public class GUI_YUTPAN implements ActionListener {
             System.exit(0);
         }
 
-        for(int i = 1; i <= Integer.valueOf(PSValue[1]); i++) {
+        for(int i = 1; i <= Integer.parseInt(PSValue[1]); i++) {
             int j = 0;
             Mals[j++] = Integer.toString(i);
         }
