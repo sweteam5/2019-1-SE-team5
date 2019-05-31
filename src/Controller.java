@@ -48,9 +48,9 @@ public class Controller implements ActionListener {
             } while(this.model.hrsEnd(this.model.whoTurn() - 1, horse));    
         }
         
-        if((this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 0 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 10) ||
+        if(((this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 0 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 10) ||
         (this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 0 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 0) ||
-        (this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 5 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 5)) {
+        (this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(0) == 5 && this.model.hrsInfo(this.model.whoTurn() - 1, horse).get(1) == 5)) && distance != 0) {
             String setDistbtn[] = {"네", "아니오"};
             dirC = JOptionPane.showOptionDialog(null, "방향을 바꾸시겠습니까?", "방향 바꾸기",
            JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, setDistbtn, "두 번째값");
@@ -83,7 +83,7 @@ public class Controller implements ActionListener {
         this.GUI.YP.btn_data[0]= new JButton("Player : "+this.model.whoTurn());
         this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
         */
-        
+        this.GUI.YP.btn_data[0].setText("Player : " + Integer.toString(this.model.whoTurn()));
     
         this.GUI.YP.Check_Pan();
         

@@ -35,7 +35,8 @@ public class Model extends Observable {
             if(gYut.get(i).getVal() == 1) distance++;
         }
 
-        if(distance == 1 && gYut.get(3).getVal() == 1) return -1;
+        if(distance == 0) return 5;
+        else if(distance == 1 && gYut.get(3).getVal() == 1) return 0;
         else return distance;
         /*setChanged();
         notifyObservers();*/
@@ -89,6 +90,7 @@ public class Model extends Observable {
          * dirChange값은 기본적으로 false로 넘길 것
          * 말이 방향을 바꿀 수 있는 위치에 있고 방향을 꺾도록 선택되었다면 true를 넘기면 됨
          */
+        int eat = 0;
         String tmp;
         if(gPlayer.get(turn).whereHorse(hN).get(0) == 10 && gPlayer.get(turn).whereHorse(hN).get(1) == 10) {
             // 말이 시작위치에 있다면 현재 턴인 플레이어의 ID를,
@@ -137,6 +139,7 @@ public class Model extends Observable {
                         }
                     }
                 }
+                eat++;
                 gMap.place(tmp, newX, newY);
             }
         } else {
@@ -145,7 +148,7 @@ public class Model extends Observable {
              */
             gMap.place(tmp, newX, newY);
         }
-        if(distance != 5 && distance != 4) turn = (turn + 1) % gPlayer.size();
+        if(distance != 5 && distance != 4 && eat == 0) turn = (turn + 1) % gPlayer.size();
         // setChanged();
         // notifyObservers();
 

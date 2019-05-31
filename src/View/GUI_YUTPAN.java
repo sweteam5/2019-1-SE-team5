@@ -172,8 +172,8 @@ public class GUI_YUTPAN implements ActionListener {
 
         // 대각선2
         btn_Board[2][8].setBounds(396, 120, 50, 50);
-        btn_Board[6][4].setBounds(337, 180, 50, 50);
-        btn_Board[4][6].setBounds(179, 350, 50, 50);
+        btn_Board[4][6].setBounds(337, 180, 50, 50);
+        btn_Board[6][4].setBounds(179, 350, 50, 50);
         btn_Board[8][2].setBounds(120, 400, 50, 50); 
 
         DP dpanel = new DP();

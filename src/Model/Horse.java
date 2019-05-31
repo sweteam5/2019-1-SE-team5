@@ -8,10 +8,12 @@ public class Horse {
     private int direction;
     private boolean isEnd;
     private ArrayList<Horse> group;
+    private int[] tempP;
 
     public Horse() {
         this.isEnd = false;
         this.group = new ArrayList<Horse>();
+        this.tempP = new int[3];
     }
 
     public void goStart() {
@@ -87,18 +89,9 @@ public class Horse {
             // 빽도
             if (this.placeX == 10 && this.placeY == 10) return;
             else {
-                if(this.direction >= 0 && this.direction <= 3) {
-                    int temp = this.direction;
-                    this.direction = (this.direction + 2) % 4;
-                    this.move(1, false);
-                    this.direction = temp;
-                } else {
-                    int temp = this.direction;
-                    if(this.direction == 4) this.direction = 5;
-                    else this.direction = 4;
-                    this.move(1, false);
-                    this.direction = temp;
-                }
+                this.placeX = this.tempP[0];
+                this.placeY = this.tempP[1];
+                this.direction = this.tempP[2];
             }
             return;
         }
@@ -117,6 +110,12 @@ public class Horse {
                 } else if(this.placeX == 5 && this.placeY == 5) {
                     this.direction = 5;
                 }
+            }
+
+            if(distance == 1) {
+                this.tempP[0] = this.placeX;
+                this.tempP[1] = this.placeY;
+                this.tempP[2] = this.direction;
             }
             /**
              * 현재 방향에 맞게 말의 좌표를 변경

@@ -108,7 +108,7 @@ public class GUI_PlayPan extends JPanel implements ActionListener {
           btn_yut[0].setIcon(yut);
           txtLog.append("Random : 윷\n");
         }
-        else if(distance==0){
+        else if(distance==5){
           btn_yut[0].setIcon(mo);
           txtLog.append("Random : 모\n");
         }
