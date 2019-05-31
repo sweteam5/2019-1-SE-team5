@@ -23,12 +23,12 @@ public class GUI_PlayPan extends JPanel implements ActionListener {
     public JButton[] btn_play = new JButton[2];
 
     
-    private ImageIcon doo = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/doo.png");
-    private ImageIcon gae = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/gae.png");
-    private ImageIcon girl = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/girl.png");
-    private ImageIcon yut = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/yut2.png");
-    private ImageIcon mo = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/mo.png");
-    private ImageIcon bk = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/bk.png");
+    private ImageIcon doo = new ImageIcon("./img/doo.png");
+    private ImageIcon gae = new ImageIcon("./img/gae.png");
+    private ImageIcon girl = new ImageIcon("./img/girl.png");
+    private ImageIcon yut = new ImageIcon("./img/yut2.png");
+    private ImageIcon mo = new ImageIcon("./img/mo.png");
+    private ImageIcon bk = new ImageIcon("./img/bk.png");
 
     private String[] setYutbtn = {"빽도", "도", "개", "걸", "윷","모"};
 

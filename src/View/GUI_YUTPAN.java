@@ -34,12 +34,12 @@ public class GUI_YUTPAN implements ActionListener {
     private BYP ypanel;
     private YP ipanel;
 
-    private ImageIcon P1 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/Opac.png");
-    private ImageIcon M1 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m1.png");
-    private ImageIcon M2 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m2.png");
-    private ImageIcon M3 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m3.png");
-    private ImageIcon M4 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m4.png");
-    private ImageIcon M5 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m5.png");
+    private ImageIcon P1 = new ImageIcon("./img/Opac.png");
+    private ImageIcon M1 = new ImageIcon("./img/m1.png");
+    private ImageIcon M2 = new ImageIcon("./img/m2.png");
+    private ImageIcon M3 = new ImageIcon("./img/m3.png");
+    private ImageIcon M4 = new ImageIcon("./img/m4.png");
+    private ImageIcon M5 = new ImageIcon("./img/m5.png");
 
     private String[] setYutbtn = {"도", "개", "걸", "윷","모","빽도"};
     private String[] setDistbtn = {"네","아니오"};
@@ -53,7 +53,7 @@ public class GUI_YUTPAN implements ActionListener {
 
     public GUI_YUTPAN(String[] PSValue) {
         try {
-            img = ImageIO.read(new File(("C:/Users/Purung/Desktop/VIEW_I~1/img/yutpan.png")));
+            img = ImageIO.read(new File(("./img/yutpan.png")));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "이미지 불러오기 실패");
             e.printStackTrace();
