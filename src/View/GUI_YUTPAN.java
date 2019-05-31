@@ -57,6 +57,10 @@ public class GUI_YUTPAN implements ActionListener {
             System.exit(0);
         }
 
+        for(int i = 1; i <= Integer.valueOf(PSValue[1]); i++) {
+            int j = 0;
+            Mals[j++] = Integer.toString(i);
+        }
         MCB = new JComboBox<String>(Mals);
 
         this.PSValue = PSValue;
@@ -409,6 +413,12 @@ public class GUI_YUTPAN implements ActionListener {
             JOptionPane.showMessageDialog(null, "방향을 바꿀 수 없습니다.");
           }
         }
+    }
+
+    public int selectHorse() {
+        int result = JOptionPane.showConfirmDialog(null, MCB,
+            "Choose Mal", JOptionPane.OK_CANCEL_OPTION);
+        return result;
     }
 
     public boolean directChange(){

@@ -145,14 +145,22 @@ public class Model extends Observable {
             gMap.place(tmp, newX, newY);
         }
         if(distance != 5 && distance != 4) turn = (turn + 1) % gPlayer.size();
-        setChanged();
-        notifyObservers();
+        // setChanged();
+        // notifyObservers();
 
     }
 
     public int whoTurn() {
         // 누구의 턴인지 출력 (PlayerID : turn + 1)
         return turn + 1;
+    }
+
+    public boolean hrsEnd(int pN, int hN) {
+        return this.gPlayer.get(pN).isENd(hN);
+    }
+
+    public int hrsInfo(int pN, int hN) {
+        return this.gPlayer.get(pN).whereHorse(hN);
     }
 
     public String mapAt(int x, int y) {

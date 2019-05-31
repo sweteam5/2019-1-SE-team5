@@ -33,73 +33,63 @@ public class Controller implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-
+        int horse;
+        int dirC;
+        boolean dirChange;
         if(e.getActionCommand()=="랜덤 던지기"){
             distance = this.model.throwYut();
             this.GUI.PYP.randomYut(distance);
-            this.model.moveHrs(0, distance, GUI.YP.directChange());
-            
-            
-            for(int i=0;i<11;i++){
-                for(int j=0;j<11;j++){
-                    String mapinfo = this.model.mapAt(i, j);
-                    System.out.println(mapinfo);
-                    if(mapinfo!=""){
-                        this.GUI.YP.btn_Board[i][j].set_Mal(Integer.parseInt(mapinfo));
-                    }
-                    else{
-                        this.GUI.YP.btn_Board[i][j].set_Mal(0);
-                    }
-                    
-                }
-            }
-            
-            /*
-            this.GUI.YP.btn_data[0]= new JButton("Player : "+this.model.whoTurn());
-            this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
-            */
-            
-        
-            this.GUI.YP.Check_Pan();
-            
-            this.GUI.YP.YUTPAN.repaint();
-            this.GUI.repaint();
-            
-            
-            
-            
-
-
         } else if(e.getActionCommand()=="지정 던지기"){
             distance=GUI.PYP.chooseYut();
             this.model.throwYut(distance);
-            this.GUI.PYP.chosenYut(distance);
-            this.model.moveHrs(0, distance, GUI.YP.directChange());
+            this.GUI.PYP.chosenYut(distance);         
+        }
 
-            for(int i=0;i<11;i++){
-                for(int j=0;j<11;j++){
-                    String mapinfo = this.model.mapAt(i, j);
-                    // System.out.println(mapinfo);
-                    if(mapinfo!=""){
-                        this.GUI.YP.btn_Board[i][j].set_Mal(Integer.parseInt(mapinfo));
-                    }
-                    else{
-                        this.GUI.YP.btn_Board[i][j].set_Mal(0);
-                    }
-                    
-                }
-            }
-            
-            /*
-            this.GUI.YP.btn_data[0]= new JButton("Player : "+this.model.whoTurn());
-            this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
-            */
-            
+        do {
+            horse = this.GUI.YP.selectHorse();
+        } while(this.model.hrsEnd(this.model.whoTurn, horse));
         
-            this.GUI.YP.Check_Pan();
-            
-            this.GUI.YP.YUTPAN.repaint();
-            this.GUI.repaint();
+        if((this.model.hrsInfo(this.model.whoTurn, horse)[0] == 0 && this.model.hrsInfo(this.model.whoTurn, horse)[1] == 10) ||
+        (this.model.hrsInfo(this.model.whoTurn, horse)[0] == 0 && this.model.hrsInfo(this.model.whoTurn, horse)[1] == 0) ||
+        (this.model.hrsInfo(this.model.whoTurn, horse)[0] == 5 && this.model.hrsInfo(this.model.whoTurn, horse)[0] == 5)) {
+            String setDistbtn[] = {"네", "아니오"};
+            dirC = JOptionPane.showOptionDialog(null, "방향을 바꾸시겠습습니까?", "방향 바꾸기",
+           JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, setDistbtn, "두 번째값");
+           if(dirC == 0) {
+               dirChange = true;
+           } else {
+               dirChange = false;
+           }
+        } else {
+            dirChange = false;
+        }
+        this.model.moveHrs(0, distance, dirChange);
+
+        for(int i=0;i<11;i++){
+            for(int j=0;j<11;j++){
+                String mapinfo = this.model.mapAt(i, j);
+                System.out.println(mapinfo);
+                if(mapinfo!=""){
+                    this.GUI.YP.btn_Board[i][j].set_Mal(Integer.parseInt(mapinfo));
+                }
+                else{
+                    this.GUI.YP.btn_Board[i][j].set_Mal(0);
+                }
+                
+            }
+        }
+        
+        /*
+        this.GUI.YP.btn_data[0]= new JButton("Player : "+this.model.whoTurn());
+        this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
+        */
+        
+    
+        this.GUI.YP.Check_Pan();
+        
+        this.GUI.YP.YUTPAN.repaint();
+        this.GUI.repaint();
+
 
             //view에서 model의 윷 던지기 실행->distance 구함
 
@@ -117,7 +107,6 @@ public class Controller implements ActionListener {
 
             //GUI.PYP.whoTurn();
             //다음 플레이어 표시
-        }
     }
 
 }
