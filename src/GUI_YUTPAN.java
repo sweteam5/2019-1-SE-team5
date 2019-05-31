@@ -217,12 +217,12 @@ public class GUI_YUTPAN implements ActionListener {
         btn_Board[0][10].setBounds(472, 39, 50, 50);
 
         // 맨 왼쪽 보드
-        btn_Board[0][0].setBounds(35, 476, 50, 50);
+        btn_Board[10][0].setBounds(35, 476, 50, 50);
         btn_Board[2][0].setBounds(36, 377, 50, 50);
         btn_Board[4][0].setBounds(36, 297, 50, 50);
         btn_Board[6][0].setBounds(36, 218, 50, 50);
         btn_Board[8][0].setBounds(36, 138, 50, 50);
-        btn_Board[10][0].setBounds(35, 39, 50, 50);
+        btn_Board[0][0].setBounds(35, 39, 50, 50);
 
         // 맨 위쪽 보드
         btn_Board[0][2].setBounds(135, 39, 50, 50);
