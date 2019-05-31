@@ -1,6 +1,7 @@
 import Model.*;
 import View.*;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -84,6 +85,25 @@ public class Controller implements ActionListener {
         this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
         */
         this.GUI.YP.btn_data[0].setText("Player : " + Integer.toString(this.model.whoTurn()));
+        switch(this.model.whoTurn()) {
+            case 1:
+                this.GUI.YP.btn_data[1].setText("Color : " + "RED");
+                this.GUI.YP.btn_data[1].setBackground(Color.RED);
+                break;
+            case 2:
+                this.GUI.YP.btn_data[1].setText("Color : " + "BLUE");
+                this.GUI.YP.btn_data[1].setBackground(Color.BLUE);
+                break;
+            case 3:
+                this.GUI.YP.btn_data[1].setText("Color : " + "GREEN");
+                this.GUI.YP.btn_data[1].setBackground(Color.GREEN);
+                break;
+            case 4:
+                this.GUI.YP.btn_data[1].setText("Color : " + "YELLOW");
+                this.GUI.YP.btn_data[1].setBackground(Color.YELLOW);
+                break;
+            default: break;
+        }
     
         this.GUI.YP.Check_Pan();
         

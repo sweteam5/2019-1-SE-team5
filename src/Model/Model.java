@@ -139,7 +139,8 @@ public class Model extends Observable {
                         }
                     }
                 }
-                eat++;
+                
+                if(newX != 10 && newY != 10) eat++;
                 gMap.place(tmp, newX, newY);
             }
         } else {

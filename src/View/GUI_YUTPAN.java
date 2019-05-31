@@ -177,18 +177,15 @@ public class GUI_YUTPAN implements ActionListener {
         btn_Board[8][2].setBounds(120, 400, 50, 50); 
 
         DP dpanel = new DP();
-        dpanel.setLayout(new GridLayout(1, 3));
+        dpanel.setLayout(new GridLayout(1, 2));
         dpanel.add(btn_data[0] = new JButton("Player : " + "1"));
 
         btn_data[0].addActionListener(this);
         btn_data[0].setPreferredSize(new Dimension(100, 100));
         btn_data[0].setEnabled(false);
 
-        dpanel.add(btn_data[1] = new JButton("말 선택"));
+        dpanel.add(btn_data[1] = new JButton("Color : " + "RED"));
         btn_data[1].addActionListener(this);
-
-        dpanel.add(btn_data[2] = new JButton("방향 바꾸기"));
-        btn_data[2].addActionListener(this);
 
         ypanel.add(ipanel);
         ipanel.setBounds(0, 0, 555, 559);
@@ -397,23 +394,23 @@ public class GUI_YUTPAN implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getActionCommand()=="Player"){          
-                // 버튼액션 X 버튼에 정보표시만 함
-        } else if(e.getActionCommand()=="말 선택"){
-            int result = JOptionPane.showConfirmDialog(null, MCB,
-            "Choose Mal", JOptionPane.OK_CANCEL_OPTION);
-            if( result == 0){
-                chooseHorse = Integer.parseInt(getSelectedItem().toString());
-            } 
-        } else if(e.getActionCommand()=="방향 바꾸기"){
-               Check_Pan();
-          if(Check_Direction() == true){
-           Dist = JOptionPane.showOptionDialog(null, "방향을 바꾸시겠습습니까?", "방향 바꾸기",
-           JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, setDistbtn, "두 번째값");
-          } else{
-            JOptionPane.showMessageDialog(null, "방향을 바꿀 수 없습니다.");
-          }
-        }
+        // if(e.getActionCommand()=="Player"){          
+        //         // 버튼액션 X 버튼에 정보표시만 함
+        // } else if(e.getActionCommand()=="말 선택"){
+        //     int result = JOptionPane.showConfirmDialog(null, MCB,
+        //     "Choose Mal", JOptionPane.OK_CANCEL_OPTION);
+        //     if( result == 0){
+        //         chooseHorse = Integer.parseInt(getSelectedItem().toString());
+        //     } 
+        // } else if(e.getActionCommand()=="방향 바꾸기"){
+        //        Check_Pan();
+        //   if(Check_Direction() == true){
+        //    Dist = JOptionPane.showOptionDialog(null, "방향을 바꾸시겠습습니까?", "방향 바꾸기",
+        //    JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, setDistbtn, "두 번째값");
+        //   } else{
+        //     JOptionPane.showMessageDialog(null, "방향을 바꿀 수 없습니다.");
+        //   }
+        // }
     }
 
     public int selectHorse() {
