@@ -34,12 +34,12 @@ public class GUI_YUTPAN implements ActionListener {
     private BYP ypanel;
     private YP ipanel;
 
-    private ImageIcon P1 = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/Opac.png");
-    private ImageIcon M1 = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/m1.png");
-    private ImageIcon M2 = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/m2.png");
-    private ImageIcon M3 = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/m3.png");
-    private ImageIcon M4 = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/m4.png");
-    private ImageIcon M5 = new ImageIcon("C:/Users/Purung/Desktop/SEP/img/m5.png");
+    private ImageIcon P1 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/Opac.png");
+    private ImageIcon M1 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m1.png");
+    private ImageIcon M2 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m2.png");
+    private ImageIcon M3 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m3.png");
+    private ImageIcon M4 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m4.png");
+    private ImageIcon M5 = new ImageIcon("C:/Users/Purung/Desktop/VIEW_I~1/img/m5.png");
 
     private String[] setYutbtn = {"도", "개", "걸", "윷","모","빽도"};
     private String[] setDistbtn = {"네","아니오"};
@@ -49,10 +49,11 @@ public class GUI_YUTPAN implements ActionListener {
     private int[] NumOfMal;
 
     private int Dist;
-    
+    private int chooseHorse;
+
     public GUI_YUTPAN(String[] PSValue) {
         try {
-            img = ImageIO.read(new File(("C:/Users/Purung/Desktop/SEP/img/yutpan.png")));
+            img = ImageIO.read(new File(("C:/Users/Purung/Desktop/VIEW_I~1/img/yutpan.png")));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "이미지 불러오기 실패");
             e.printStackTrace();
@@ -405,7 +406,9 @@ public class GUI_YUTPAN implements ActionListener {
         } else if(e.getActionCommand()=="말 선택"){
             int result = JOptionPane.showConfirmDialog(null, MCB,
             "Choose Mal", JOptionPane.OK_CANCEL_OPTION);
-            System.out.println(result);       
+            if( result == JOptionPane.OK_OPTION){
+                chooseHorse = MCB.getSelectedItem();
+            } 
         } else if(e.getActionCommand()=="방향 바꾸기"){
                Check_Pan();
           if(Check_Direction() == true){
@@ -420,7 +423,12 @@ public class GUI_YUTPAN implements ActionListener {
     public int selectHorse() {
         int result = JOptionPane.showConfirmDialog(null, MCB,
             "Choose Mal", JOptionPane.OK_CANCEL_OPTION);
-        return result;
+            if( result == JOptionPane.OK_OPTION){
+                chooseHorse = Integer.parseInt(MCB.getSelectedItem().toString());
+            } else {
+                chooseHorse = 0;
+            }
+        return chooseHorse;
     }
 
     public boolean directChange(){

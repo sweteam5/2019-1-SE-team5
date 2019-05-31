@@ -11,8 +11,8 @@ public class GUI_Frame extends Frame{
 
 	String[] PSValue = new String[2];
 	Model model;
-	GUI_YUTPAN YP;
-	GUI_PlayPan PYP;
+	public GUI_YUTPAN YP;
+	public GUI_PlayPan PYP;
 
 	public GUI_Frame(String[] PSValue,Model model ,boolean exit){
 		this.model=model;

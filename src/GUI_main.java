@@ -1,4 +1,5 @@
 import java.io.IOException;
+import View.*;
 
 public class GUI_main 
 {
