@@ -105,7 +105,7 @@ public class Model extends Observable {
 
         // 말을 움직임
         gPlayer.get(turn).moveHrs(hN, distance, dirChange);
-        System.out.println(gPlayer.get(turn).whereHorse(hN));
+        // System.out.println(gPlayer.get(turn).whereHorse(hN));
 
         int newX = gPlayer.get(turn).whereHorse(hN).get(0);
         int newY = gPlayer.get(turn).whereHorse(hN).get(1);
@@ -140,7 +140,7 @@ public class Model extends Observable {
                     }
                 }
                 
-                if(newX != 10 && newY != 10) eat++;
+                if(!(newX == 10 && newY == 10)) eat++;
                 gMap.place(tmp, newX, newY);
             }
         } else {

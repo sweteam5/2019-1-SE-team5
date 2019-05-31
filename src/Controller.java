@@ -63,13 +63,13 @@ public class Controller implements ActionListener {
         } else {
             dirChange = false;
         }
-        System.out.println(horse + " " + distance + " " + dirChange);
+        // System.out.println(horse + " " + distance + " " + dirChange);
         this.model.moveHrs(horse, distance, dirChange);
 
         for(int i=0;i<11;i++){
             for(int j=0;j<11;j++){
                 String mapinfo = this.model.mapAt(i, j);
-                System.out.println(mapinfo);
+                // System.out.println(mapinfo);
                 if(mapinfo!=""){
                     this.GUI.YP.btn_Board[i][j].set_Mal(Integer.parseInt(mapinfo));
                 }

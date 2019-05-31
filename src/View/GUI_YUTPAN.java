@@ -231,140 +231,140 @@ public class GUI_YUTPAN implements ActionListener {
             for(int j =0;j<11;j++){
                 switch(btn_Board[i][j].get_Mal()){
                     case 1:
-                        System.out.println("1-");
+                        // System.out.println("1-");
                         btn_Board[i][j].setIcon(M1);
                         btn_Board[i][j].setBackground(Color.RED);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 11:
-                        System.out.println("2-");
+                        // System.out.println("2-");
                         btn_Board[i][j].setIcon(M2);
                         btn_Board[i][j].setBackground(Color.RED);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 111 :
-                        System.out.println("3-");
+                        // System.out.println("3-");
                         btn_Board[i][j].setIcon(M3);
                         btn_Board[i][j].setBackground(Color.RED);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 1111 :
-                        System.out.println("4-");
+                        // System.out.println("4-");
                         btn_Board[i][j].setIcon(M4);
                         btn_Board[i][j].setBackground(Color.RED);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 11111 :
-                        System.out.println("5-");
+                        // System.out.println("5-");
                         btn_Board[i][j].setIcon(M5);
                         btn_Board[i][j].setBackground(Color.RED);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 2:
-                        System.out.println("1-");
+                        // System.out.println("1-");
                         btn_Board[i][j].setIcon(M1);
                         btn_Board[i][j].setBackground(Color.BLUE);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 22:
-                        System.out.println("2-");
+                        // System.out.println("2-");
                         btn_Board[i][j].setIcon(M2);
                         btn_Board[i][j].setBackground(Color.BLUE);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 222 :
-                        System.out.println("3-");
+                        // System.out.println("3-");
                         btn_Board[i][j].setIcon(M3);
                         btn_Board[i][j].setBackground(Color.BLUE);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 2222 :
-                        System.out.println("4-");
+                        // System.out.println("4-");
                         btn_Board[i][j].setIcon(M4);
                         btn_Board[i][j].setBackground(Color.BLUE);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 22222 :
-                        System.out.println("5-");
+                        // System.out.println("5-");
                         btn_Board[i][j].setIcon(M5);
                         btn_Board[i][j].setBackground(Color.BLUE);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 3:
-                        System.out.println("1-");
+                        // System.out.println("1-");
                         btn_Board[i][j].setIcon(M1);
                         btn_Board[i][j].setBackground(Color.GREEN);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 33:
-                        System.out.println("2-");
+                        // System.out.println("2-");
                         btn_Board[i][j].setIcon(M2);
                         btn_Board[i][j].setBackground(Color.GREEN);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 333 :
-                        System.out.println("3-");
+                        // System.out.println("3-");
                         btn_Board[i][j].setIcon(M3);
                         btn_Board[i][j].setBackground(Color.GREEN);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 3333 :
-                        System.out.println("4-");
+                        // System.out.println("4-");
                         btn_Board[i][j].setIcon(M4);
                         btn_Board[i][j].setBackground(Color.GREEN);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 33333 :
-                        System.out.println("5-");
+                        // System.out.println("5-");
                         btn_Board[i][j].setIcon(M5);
                         btn_Board[i][j].setBackground(Color.GREEN);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 4:
-                        System.out.println("1-");
+                        // System.out.println("1-");
                         btn_Board[i][j].setIcon(M1);
                         btn_Board[i][j].setBackground(Color.YELLOW);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 44:
-                        System.out.println("2-");
+                        // System.out.println("2-");
                         btn_Board[i][j].setIcon(M2);
                         btn_Board[i][j].setBackground(Color.YELLOW);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 444 :
-                        System.out.println("3-");
+                        // System.out.println("3-");
                         btn_Board[i][j].setIcon(M3);
                         btn_Board[i][j].setBackground(Color.YELLOW);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 4444 :
-                        System.out.println("4-");
+                        // System.out.println("4-");
                         btn_Board[i][j].setIcon(M4);
                         btn_Board[i][j].setBackground(Color.YELLOW);
                         btn_Board[i][j].setBorderPainted(true);
                         btn_Board[i][j].setContentAreaFilled(true);
                         break;
                     case 44444 :
-                        System.out.println("5-");
+                        // System.out.println("5-");
                         btn_Board[i][j].setIcon(M5);
                         btn_Board[i][j].setBackground(Color.YELLOW);
                         btn_Board[i][j].setBorderPainted(true);
