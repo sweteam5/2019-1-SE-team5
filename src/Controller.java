@@ -45,12 +45,12 @@ public class Controller implements ActionListener {
             this.GUI.PYP.chosenYut(distance);         
         }
 
-        horse = this.GUI.YP.selectHorse();
+        horse = this.GUI.YP.selectHorse()-1;
 
         if(this.model.hrsEnd(this.model.whoTurn() - 1, horse) == true) {
             do {
                 JOptionPane.showMessageDialog(null, "움직일 수 없는 말입니다.", "오류", 2);
-                horse = this.GUI.YP.selectHorse();
+                horse = this.GUI.YP.selectHorse()-1;
             } while(this.model.hrsEnd(this.model.whoTurn() - 1, horse));    
         }
         
@@ -68,7 +68,7 @@ public class Controller implements ActionListener {
         } else {
             dirChange = false;
         }
-        this.model.moveHrs(0, distance, dirChange);
+        this.model.moveHrs(horse, distance, dirChange);
 
         for(int i=0;i<11;i++){
             for(int j=0;j<11;j++){

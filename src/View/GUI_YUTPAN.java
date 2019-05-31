@@ -46,7 +46,7 @@ public class GUI_YUTPAN implements ActionListener {
 
     private String[] PSValue = new String[2];
     private int[] NumOfPlayer;
-    private int[] NumOfMal;
+    private String[] NumOfMal;
 
     private int Dist;
     private int chooseHorse;
@@ -59,24 +59,20 @@ public class GUI_YUTPAN implements ActionListener {
             e.printStackTrace();
             System.exit(0);
         }
-
-        for(int i = 1; i <= Integer.parseInt(PSValue[1]); i++) {
-            int j = 0;
-            Mals[j++] = Integer.toString(i);
-        }
-        MCB = new JComboBox<String>(Mals);
-
+        
         this.PSValue = PSValue;
         NumOfPlayer = new int[Integer.parseInt(PSValue[0])];
-        NumOfMal = new int[Integer.parseInt(PSValue[1])];
+        NumOfMal = new String[Integer.parseInt(PSValue[1])];
 
         for(int i =0; i<NumOfPlayer.length;i++){
             NumOfPlayer[i] = i+1;
         }
 
         for(int i =0; i<NumOfMal.length;i++){
-            NumOfMal[i] = i+1;
+            NumOfMal[i] = Integer.toString(i+1);
         } // 인원 =4, 말개수 = 5로 설정할 경우 배열에 들어있는 값 (크기는 psvalue의 각 요소로 맞춤)[1, 2, 3, 4]/[1, 2, 3, 4, 5]
+
+        MCB = new JComboBox<String>(NumOfMal);
 
         YUTPAN.setSize(500, 500);
         YUTPAN.setLayout(new BorderLayout(5, 3));
@@ -406,8 +402,8 @@ public class GUI_YUTPAN implements ActionListener {
         } else if(e.getActionCommand()=="말 선택"){
             int result = JOptionPane.showConfirmDialog(null, MCB,
             "Choose Mal", JOptionPane.OK_CANCEL_OPTION);
-            if( result == JOptionPane.OK_OPTION){
-                chooseHorse = MCB.getSelectedItem();
+            if( result == 0){
+                chooseHorse = Integer.parseInt(getSelectedItem().toString());
             } 
         } else if(e.getActionCommand()=="방향 바꾸기"){
                Check_Pan();
@@ -423,7 +419,7 @@ public class GUI_YUTPAN implements ActionListener {
     public int selectHorse() {
         int result = JOptionPane.showConfirmDialog(null, MCB,
             "Choose Mal", JOptionPane.OK_CANCEL_OPTION);
-            if( result == JOptionPane.OK_OPTION){
+            if(result == 0){
                 chooseHorse = Integer.parseInt(MCB.getSelectedItem().toString());
             } else {
                 chooseHorse = 0;
