@@ -8,7 +8,6 @@ public class Model extends Observable {
     private int distance;
     private ArrayList<Player> gPlayer = new ArrayList<Player>();
     private Map gMap;
-    private ArrayList<Integer> res = new ArrayList<Integer>();
     private int turn = 0;
     private boolean isEnd;
     private int pNumber;
@@ -47,25 +46,26 @@ public class Model extends Observable {
          * 미리 설정한 값대로 윷을 던진 결과가 나오게 함
          * (지정 던지기)
          */
+        ArrayList<Integer> res = new ArrayList<Integer>();
         distance = num;
         if(num == 0) {
             for(int i = 0; i < 3; i++) {
-                this.res.add(0);
+                res.add(0);
             }
-            this.res.add(1);
+            res.add(1);
             return -1;
         } else if(num == 5) {
             for(int i = 0; i < 4; i++) {
-                this.res.add(0);
+                res.add(0);
             }
             return distance;
         } else {
             for(int i = 0; i < 4; i++) {
                 if(num > 0) {
-                    this.res.add(1);
+                    res.add(1);
                     num--;
                 }
-                else this.res.add(0);
+                else res.add(0);
             }
             return distance;
         }
@@ -75,8 +75,9 @@ public class Model extends Observable {
         /**
          * 던져진 윷의 결과를 배열로 넘겨줌
          */
+        ArrayList<Integer> res = new ArrayList<Integer>();
         for(int i = 0; i < gYut.size(); i++) {
-            res.push(gYut.get(i).getVal());
+            res.add(gYut.get(i).getVal());
         }
 
         return res;
