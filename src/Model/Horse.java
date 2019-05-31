@@ -74,7 +74,7 @@ public class Horse {
     }
 
     public void pushGroup(Horse hrs) {
-        this.group.push(hrs);
+        this.group.add(hrs);
     }
 
     public void move(int distance, boolean dirChange) {
