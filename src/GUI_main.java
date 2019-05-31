@@ -1,18 +1,12 @@
 import java.io.IOException;
 import View.*;
 
-public class GUI_main 
+
+public class GUI_main
 {
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args)
 	{
-		// try {
-
-		// 	UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-			
-		// } catch (Exception e) { }
-
-		GUI_PlaySetting PS = new GUI_PlaySetting();
-		Controller Yutgame = new Controller(PS);
+		Controller Yutgame = new Controller();
 		Yutgame.init();
 	}
 }

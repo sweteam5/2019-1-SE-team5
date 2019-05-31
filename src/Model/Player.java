@@ -21,11 +21,11 @@ public class Player {
          * 아니면 false를 반환
          */
         int tmp = 0;
-        for(int i = 0 ; i < hrr.length(); i++) {
+        for(int i = 0 ; i < hrr.size(); i++) {
             if(hrr.get(i).getEnd() == true) tmp++;
         }
 
-        if(tmp == hrr.length()) return true;
+        if(tmp == hrr.size()) return true;
         else return false;
     }
 

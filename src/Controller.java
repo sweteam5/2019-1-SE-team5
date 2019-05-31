@@ -12,24 +12,18 @@ public class Controller implements ActionListener {
     int distance;
     Model model;
 
-    public Controller(GUI_PlaySetting PS) {
+    public Controller() {
+        
+    }
+
+    public void init() {
+        GUI_PlaySetting PS = new GUI_PlaySetting();
         this.model = new Model(PS.get_settingValue());
         // model에게 플레이수, 말 수 전달
         this.GUI = new GUI_Frame(PS.get_settingValue(), model, PS.get_turnoff());
         // 게임판 생성
-    }
-
-    public void init() {
-
-        // GUI.PYP.whoTurn();
-        // 첫 시작시 플레이어 1 정보 표시
-
         this.GUI.PYP.btn_play[0].addActionListener(this);
-        //랜덤 윷 버튼
-        
         this.GUI.PYP.btn_play[1].addActionListener(this);
-
-       
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -97,22 +91,16 @@ public class Controller implements ActionListener {
         this.GUI.repaint();
 
 
-            //view에서 model의 윷 던지기 실행->distance 구함
-
-            /*choose what horse at view*/
-            
-            //model.moveHrs(horsenum, distance, directionchange);
-            //view에서 받은 정보를 모델에거 전달 후 말 옮기기 실행
-
-            /*모델 정보를 뷰에 보낸 후 뷰에서 반영*/
-
-            //if(model.endGame()){
-                /*뷰에서 게임 끝났을 때 처리*/
-            //}
-            //게임이 끝났는지 체크
-
-            //GUI.PYP.whoTurn();
-            //다음 플레이어 표시
+        if(this.model.endGame()) {
+            String setDistbtn[] = {"네", "아니오"};
+            int choice = JOptionPane.showOptionDialog(null, "게임이 끝났습니다. 승자 : Player " + this.model.whoTurn() + "\n재시작 하시겠습니까?",
+            "게임 종료", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, setDistbtn, "");
+            if(choice == 0) {
+                this.GUI.close();
+                this.init();
+            }
+            else System.exit(0);
+        }
     }
 
 }

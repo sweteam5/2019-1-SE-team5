@@ -1,6 +1,5 @@
 package View;
 
-import java.io.IOException;
 import javax.swing.*;
 
 
@@ -15,7 +14,7 @@ public class GUI_PlaySetting {
     JComboBox<String> YNP;
     JComboBox<String> YNH;
 
-    public GUI_PlaySetting() throws IOException{
+    public GUI_PlaySetting() {
 
 
         YNP = new JComboBox<String>(NOP);

@@ -13,6 +13,7 @@ public class GUI_Frame extends Frame{
 	Model model;
 	public GUI_YUTPAN YP;
 	public GUI_PlayPan PYP;
+	private JFrame frame;
 
 	public GUI_Frame(String[] PSValue,Model model ,boolean exit){
 		this.model=model;
@@ -21,7 +22,7 @@ public class GUI_Frame extends Frame{
 			System.exit(0);
 		}
 
-		JFrame frame = new JFrame("SEPJ1");
+		frame = new JFrame("SEPJ1");
 		frame.setBounds(250,220,870,700);
 		frame.setResizable(false);
 
@@ -38,8 +39,10 @@ public class GUI_Frame extends Frame{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setVisible(true);
-
-
-	}		
+	}	
+	
+	public void close() {
+		frame.setVisible(false);
+	}
 }
 
