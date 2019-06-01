@@ -40,6 +40,7 @@ public class GUI_PlaySetting {
         }
         else{
            turnoff=true;
+           System.exit(0);
         }
     }
 
