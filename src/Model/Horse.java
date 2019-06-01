@@ -108,7 +108,8 @@ public class Horse {
                 } else if (this.placeX == 0 && this.placeY == 0) {
                     this.direction = 5;
                 } else if(this.placeX == 5 && this.placeY == 5) {
-                    this.direction = 5;
+                    if(this.direction == 4) this.direction = 5;
+                    else this.direction = 4;
                 }
             }
 
