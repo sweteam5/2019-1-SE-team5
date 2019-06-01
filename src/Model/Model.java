@@ -105,7 +105,7 @@ public class Model extends Observable {
 
         // 말을 움직임
         gPlayer.get(turn).moveHrs(hN, distance, dirChange);
-        System.out.println(gPlayer.get(turn).whereHorse(hN));
+        // System.out.println(gPlayer.get(turn).whereHorse(hN));
 
         int newX = gPlayer.get(turn).whereHorse(hN).get(0);
         int newY = gPlayer.get(turn).whereHorse(hN).get(1);
@@ -140,7 +140,7 @@ public class Model extends Observable {
                     }
                 }
                 
-                if(newX != 10 && newY != 10) eat++;
+                if(!(newX == 10 && newY == 10)) eat++;
                 gMap.place(tmp, newX, newY);
             }
         } else {
@@ -149,6 +149,11 @@ public class Model extends Observable {
              */
             gMap.place(tmp, newX, newY);
         }
+
+        /**
+         * 윷, 모가 나왔거나 상대의 말을 잡았다면 턴을 넘기지 않고,
+         * 이외의 경우에는 턴을 넘김
+         */
         if(distance != 5 && distance != 4 && eat == 0) turn = (turn + 1) % gPlayer.size();
         // setChanged();
         // notifyObservers();
