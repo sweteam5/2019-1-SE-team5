@@ -14,10 +14,10 @@
  2. 인코딩을 default에서 other...로 바꾸고, UTF-8로 설정해줍니다.
  3. 이클립스를 재실행합니다.<br>
  
-GUI_main.java가 main class가 됩니다. 빌드 및 실행하시면 됩니다.
+`path/src/GUI_main.java`가 main class가 됩니다. 빌드 및 실행하시면 됩니다.
 
 ### Second Case: IntelliJ
-GUI_main.java 파일이 main클래스를 가지고 있습니다. 정상적으로 빌드 및 실행하실 수 있습니다.
+`path/stc/GUI_main.java` 파일이 main클래스를 가지고 있습니다. 정상적으로 빌드 및 실행하실 수 있습니다.
 
 
 ### Third Case: VSCode
