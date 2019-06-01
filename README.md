@@ -22,7 +22,7 @@
 
 ### Third Case: VSCode
 VSCode에서 java 파일을 빌드 및 실행하기 위해서는 VSCode의 Extension이 필요합니다. MicroSoft에서 제공하는 **Java Extension Pack**을 설치하시기 바랍니다.   
-다음과 같이 `launch.json`을 작성한뒤, 실행합니다.
+`path/.vscode`내에 다음과 같이 `launch.json`을 작성한뒤, 실행합니다.
 ```json
 {
     "version": "0.2.0",
