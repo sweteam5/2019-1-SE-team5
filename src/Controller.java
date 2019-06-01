@@ -85,6 +85,7 @@ public class Controller implements ActionListener {
         this.GUI.YP.btn_data[0].setText("Player : "+whoTurn());
         */
         this.GUI.YP.btn_data[0].setText("Player : " + Integer.toString(this.model.whoTurn()));
+        this.GUI.YP.btn_data[1].setText("남은 말 : " + this.model.getRemainHorseofPlayer(this.model.whoTurn() - 1));
         switch(this.model.whoTurn()) {
             case 1:
                 this.GUI.YP.btn_data[2].setText("Color : " + "RED");

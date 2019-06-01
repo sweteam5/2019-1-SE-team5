@@ -183,6 +183,10 @@ public class Model extends Observable {
         return gMap.getMap();
     }
 
+    public int getRemainHorseofPlayer(int pN) {
+        return this.gPlayer.get(pN).getRemainHorse();
+    }
+
     public boolean endGame() {
         /**
          * 게임이 끝났는지를 판단.

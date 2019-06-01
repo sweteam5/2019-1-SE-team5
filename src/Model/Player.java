@@ -5,6 +5,7 @@ import java.util.*;
 public class Player {
     private ArrayList<Horse> hrr = new ArrayList<Horse>();
     private int pNn;
+    private int remainHorse;
 
     public Player(int pNN, int hNum) {
         this.pNn = pNN;
@@ -12,6 +13,7 @@ public class Player {
             hrr.add(new Horse());
             hrr.get(i).goStart();
         }
+        this.remainHorse = hNum;
     }
 
     public boolean isEnd() {
@@ -41,6 +43,7 @@ public class Player {
          * hN번 말을 distance만큼 움직임
          */
         hrr.get(hN).move(distance, dirChange);
+        if(hrr.get(hN).getEnd() == true) this.remainHorse--;
     }
 
     public int getId() {
@@ -71,6 +74,10 @@ public class Player {
                 }
             }
         }
+    }
+
+    public int getRemainHorse() {
+        return this.remainHorse;
     }
 
     public ArrayList<Integer> whereHorse(int hN) {
