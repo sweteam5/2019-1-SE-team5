@@ -120,7 +120,7 @@ public class Controller implements ActionListener {
 
         if(this.model.endGame()) {
             String setDistbtn[] = {"네", "아니오"};
-            int choice = JOptionPane.showOptionDialog(null, "게임이 끝났습니다. 승자 : Player " + this.model.whoTurn() + "\n재시작 하시겠습니까?",
+            int choice = JOptionPane.showOptionDialog(null, "게임이 끝났습니다. 승자 : Player " + (this.model.whoTurn()-1) + "\n재시작 하시겠습니까?",
             "게임 종료", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, setDistbtn, "");
             if(choice == 0) {
                 this.GUI.close();
