@@ -151,6 +151,11 @@ public class Model extends Observable {
         }
 
         /**
+         * 게임이 끝났다면 턴을 넘기지 않고 끝냄
+         */
+        if(this.endGame()) return;
+
+        /**
          * 윷, 모가 나왔거나 상대의 말을 잡았다면 턴을 넘기지 않고,
          * 이외의 경우에는 턴을 넘김
          */
