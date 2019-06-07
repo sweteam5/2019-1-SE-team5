@@ -22,27 +22,27 @@ public class GUI_Frame extends Frame{
 			System.exit(0);
 		}
 
-		frame = new JFrame("SEPJ1 - YUTGAME");
-		frame.setBounds(250,220,870,700);
-		frame.setResizable(false);
+		frame = new JFrame("SEPJ1 - YUTGAME");   // Create View Main_frame
+		frame.setBounds(250,220,870,700);	// set size & margins
+		frame.setResizable(false);		// resize == false
 
-		frame.setLayout(new BorderLayout(0,0));		
+		frame.setLayout(new BorderLayout(0,0));	  // use border layout to assign
 
-		this.YP = new GUI_YUTPAN(PSValue);
-		this.PYP = new GUI_PlayPan(PSValue);
+		this.YP = new GUI_YUTPAN(PSValue);	 // get start setting value 
+		this.PYP = new GUI_PlayPan(PSValue);	 // get start setting value 
 									
-		frame.add(YP.get_yutPan(), BorderLayout.CENTER);
-		frame.add(PYP.get_playpan(),BorderLayout.EAST);
+		frame.add(YP.get_yutPan(), BorderLayout.CENTER);	// add yutpanel to frame
+		frame.add(PYP.get_playpan(),BorderLayout.EAST);		// add playpanel to frame
 
 
-		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setVisible(true);
+		frame.getContentPane().setBackground(Color.WHITE);	// set background white
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// exit on close
+		frame.setResizable(false);	// resize == false
+		frame.setVisible(true);		// Visible == flase
 	}	
 	
 	public void close() {
-		frame.setVisible(false);
+		frame.setVisible(false); // if restart game, set visible to 'false' for previous frame
 	}
 }
 
