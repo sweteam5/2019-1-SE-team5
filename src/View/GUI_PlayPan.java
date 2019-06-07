@@ -37,84 +37,84 @@ public class GUI_PlayPan extends JPanel implements ActionListener {
         this.PSValue = PSValue;
          
         label_inform = new JLabel(" 설정된 참여자   :   " + PSValue[0] + "  설정된 말 개수   :   " + PSValue[1]);
-        txtLog.setEditable(false);
-        txtLog.setFocusable(false); // 포커싱 불가
+        txtLog.setEditable(false);  //edit == false
+        txtLog.setFocusable(false); // focusing == false
 
-        ButtonPan Vpanel = new ButtonPan();
-        ButtonPan Bpanel = new ButtonPan();
-        ButtonPan Cpanel = new ButtonPan();
+        ButtonPan Vpanel = new ButtonPan();  // creat button jpanel 1
+        ButtonPan Bpanel = new ButtonPan();  // creat button jpanel 2
+        ButtonPan Cpanel = new ButtonPan();  // creat button jpanel 3
 
-        ButtonPan lspanel = new ButtonPan();
+        ButtonPan lspanel = new ButtonPan();  // creat button jpanel 4
 
-        lspanel.setLayout(new BorderLayout());
-        lspanel.add(label_inform, BorderLayout.NORTH);
-        lspanel.add(scrollPane, BorderLayout.CENTER);
+        lspanel.setLayout(new BorderLayout());  // set layout == border
+        lspanel.add(label_inform, BorderLayout.NORTH); // label add to panel [north]
+        lspanel.add(scrollPane, BorderLayout.CENTER);   // text area add to panel [center]
 
-        Vpanel.setLayout(new GridLayout(1, 1));
+        Vpanel.setLayout(new GridLayout(1, 1)); //set gridlayout with no margin
 
-        Vpanel.add(btn_yut[0] = new JButton(""));
-        btn_yut[0].setPreferredSize(new Dimension(300,244));
-        btn_yut[0].setIcon(doo);
-        btn_yut[0].setPreferredSize(new Dimension(300,270)); //사이즈 설정
-        btn_yut[0].setText(null); // 텍스트 설정 불가
-        btn_yut[0].setBorderPainted(false); // 경계선 설정 불가
-        btn_yut[0].setContentAreaFilled(false); // 콘텐츠 내부 채우기 불가 (투명화)
+        Vpanel.add(btn_yut[0] = new JButton(""));   // create image yut button to markup result 
+        btn_yut[0].setPreferredSize(new Dimension(300,244)); 
+        btn_yut[0].setIcon(doo); // set image icon
+        btn_yut[0].setPreferredSize(new Dimension(300,270)); 
+        btn_yut[0].setText(null); // text set == false
+        btn_yut[0].setBorderPainted(false); // border sett == false
+        btn_yut[0].setContentAreaFilled(false); // transparent content
 
-        Bpanel.setLayout(new GridLayout(1, 2));
+        Bpanel.setLayout(new GridLayout(1, 2)); //set grid lyout to assign
 
-        Bpanel.add(btn_play[0] = new JButton("랜덤 던지기"));
-        btn_play[0].setPreferredSize(new Dimension(100,100));
+        Bpanel.add(btn_play[0] = new JButton("랜덤 던지기")); // create random yut button
+        btn_play[0].setPreferredSize(new Dimension(100,100)); // set size
 
-        Bpanel.add(btn_play[1] = new JButton("지정 던지기"));
+        Bpanel.add(btn_play[1] = new JButton("지정 던지기")); // create set yut button
 
-        Cpanel.setLayout(new BorderLayout());
-        Cpanel.add(Vpanel, BorderLayout.CENTER);
-        Cpanel.add(Bpanel, BorderLayout.SOUTH);
+        Cpanel.setLayout(new BorderLayout()); // create Cpanel to add V&B panel
+        Cpanel.add(Vpanel, BorderLayout.CENTER); // set Vpanel to Center
+        Cpanel.add(Bpanel, BorderLayout.SOUTH);  // set Bpanel to South
 
-        panelP.setLayout(new GridLayout(2, 1));
-        panelP.add(lspanel);
-        panelP.add(Cpanel);
+        panelP.setLayout(new GridLayout(2, 1));  // Set gridlayout to assign V&B panel
+        panelP.add(lspanel); // add panel
+        panelP.add(Cpanel);  // add panel
     }
 
     private class ButtonPan extends JPanel {
-
+        // Button Panel Class
     }
 
     public JPanel get_playpan() {
-        return panelP;
+        return panelP; //get main panel
     }
 
     public void randomYut(int distance){
-
-        if(distance==1){
-          btn_yut[0].setIcon(doo);
+        // Random yut value to Set Icon 
+        if(distance==1){    
+          btn_yut[0].setIcon(doo);   // Result of YUT == 1 , then set icon doo
           txtLog.append("Random : 도\n");
         }
         else if(distance==2){
-          btn_yut[0].setIcon(gae);
+          btn_yut[0].setIcon(gae);  // Result of YUT == 2 , then set icon gae
           txtLog.append("Random : 개\n");
         }
         else if(distance==3){
-          btn_yut[0].setIcon(girl);
+          btn_yut[0].setIcon(girl);   // Result of YUT == 3 , then set icon girl
           txtLog.append("Random : 걸\n");
         }
         else if(distance==4){
-          btn_yut[0].setIcon(yut);
+          btn_yut[0].setIcon(yut);    // Result of YUT == 4 , then set icon yut
           txtLog.append("Random : 윷\n");
         }
         else if(distance==5){
-          btn_yut[0].setIcon(mo);
+          btn_yut[0].setIcon(mo);     // Result of YUT == 2 , then set icon mo
           txtLog.append("Random : 모\n");
         }
         else{
-          btn_yut[0].setIcon(bk);
+          btn_yut[0].setIcon(bk);      // Result of YUT == else , then set icon gae
           txtLog.append("Random : 빽도\n");
         }
 
     }
 
     public void chosenYut(int distance){
-
+         // setted yut value to Set Icon 
       if(distance==1){
         btn_yut[0].setIcon(doo);
         txtLog.append("Set : 도\n");
